@@ -31,5 +31,14 @@ Object.is(NaN, 0 / 0) // true
 
 [react/packages/shared/shallowEqual.js](https://github.com/facebook/react/blob/main/packages/shared/shallowEqual.js)
 
+shallowEqual
+1. Object.is 를 통한 비교 수행
+2. 두 값이 객체이면 객체 간 얕은 비교 수행
 
+## React.memo
 
+React.memo 는 shallowEqual 로 얕은 비교를 수행한다. 
+
+중첩 객체의 경우 shallowEqual 의 결과는 항상 false 이다.
+
+때문에 React.memo 컴포넌트의 중첩 객체를 props 으로 구성하는 경우 의도와는 달리 메모이제이션 되지 못한다. 
