@@ -26,4 +26,30 @@ setTimeout, setInterval, setImmediate 를 호출했을 때의 콜백은 테스�
 
 ### 마이크로 테스크 큐
 
-작성 예정
+Promise, MutationObserver, process.nextTick 는 마이크로 테스크 큐에 담긴다.
+
+테스크 큐보다 우선권을 지닌다.
+
+### 다음의 실행 결과는?
+
+```js
+function foo() {
+  console.log('foo')
+}
+
+function bar() {
+  console.log('bar')
+}
+
+function baz() {
+  console.log('baz')
+}
+
+setTimeout(foo, 0)
+
+Promise.resolve().then(bar)
+
+baz()
+```
+
+
