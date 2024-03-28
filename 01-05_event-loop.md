@@ -18,6 +18,26 @@ Chrome 브라우저, Node.js 의 V8 엔진은 이벤트 루프 라는 자바스�
 
 수행해야 할 동기적 코드나 함수 호출을 순차적으로 콜 스택에 담아두고 실행이 완료된 아이템을 비운다.
 
+### 다음의 실행 결과는?
+
+```js
+function main() {
+  console.log('main')
+  job1()
+}
+
+function job1() {
+  console.log('job1')
+  job2()
+}
+
+function job2() {
+  console.log('job2')
+}
+
+main()
+```
+
 ### 테스크 큐
 
 setTimeout, setInterval, setImmediate 를 호출했을 때의 콜백은 테스크 큐에 담긴다.
