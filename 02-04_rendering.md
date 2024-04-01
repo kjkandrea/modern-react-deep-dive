@@ -10,3 +10,42 @@
   * `key props` 가 변경되는 경우
   * `props` 가 변경되는 경우
   *  부모 컴포넌트가 렌더링 될 경우
+
+## 리액트의 렌더링 프로세스
+
+JSX 문법을 통해 구성된 컴포넌트의 컴파일 결과물은 다음과 같다.
+
+**Before**
+
+```jsx
+function Hello() {
+  return (
+    <TestComponent a={35} b="yceffort">
+      안녕하세요.
+    </TestComponent>
+  )      
+}
+```
+
+**After**
+
+```js
+function Hello() {
+  return React.createElement(
+    TestComponent,
+    { a: 35, b: 'yceffort' },
+    '안녕하세요'
+  ) 
+}
+```
+
+`Hello` 의 결과물은 다음과 같다.
+
+```js
+// 렌더링 결과물
+{ type: TestComponent, props: { a: 35, b: "yceffort" }, children: "안녕하세요" }
+```
+
+렌더링 프로세스가 실행되면 각 컴포넌트의 렌더링 결과물이 모두 수집한다. 이후 가상 DOM 과 비교해 실제 DOM 에 반영하기위한 모든 변경사항을 수집한다.
+
+이러한 과정을 재조정(Reconciliation) 이라고 한다.
