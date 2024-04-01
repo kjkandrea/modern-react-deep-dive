@@ -42,8 +42,7 @@ function Hello() {
 `Hello` 의 결과물은 다음과 같다.
 
 ```js
-// 렌더링 결과물
-{ type: TestComponent, props: { a: 35, b: "yceffort" }, children: "안녕하세요" }
+const 렌더링_결과물 = { type: TestComponent, props: { a: 35, b: "yceffort" }, children: "안녕하세요" }
 ```
 
 렌더링 프로세스가 실행되면 각 컴포넌트의 렌더링 결과물이 모두 수집한다. 이후 가상 DOM 과 비교해 실제 DOM 에 반영하기위한 모든 변경사항을 수집한다.
