@@ -1,9 +1,9 @@
 import './App.css'
-import {ReactMemoProblem} from "./01/ReactMemoProblem";
+import {A} from "./02-04/RenderingProcess";
 
 function App() {
   return (
-      <ReactMemoProblem />
+      <A />
   )
 }
 
