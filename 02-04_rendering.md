@@ -69,9 +69,19 @@ const 렌더링_결과물 = { type: TestComponent, props: { a: 35, b: "yceffort"
 
 ex) DOM 의 사이즈 측정
 
+## 렌더링 시나리오
 
+[리액트 컴포넌트 트리의 렌더링 과정을 살펴보기 위한 예제](./playground/src/02-04/RenderingProcess.tsx)
 
+확인 방법 : first rendering 이후 React Devtools 로 [+] 버튼을 1회 동작하는 과정을 profiling
 
-
-
+1. B 컴포넌트의 `setState` 호출
+2. B 컴포넌트의 리렌더링이 필요하다고 체킹.
+3. 리액트는 트리 최상단에서부터 렌더링 경로를 검사함.
+4. A 컴포넌트는 리렌더링이 필요한 요소가 없으므로 생략
+5. B 컴포넌트 리렌더링이 체킹되어 있으므로 리렌더링
+6. 5번 과정에서 B 는 C 를 반환
+7. C 의 props number 가 업데이트 되었기에 리렌더링 한다.
+8. 7 번 과정에서 C 는 D 를 반환
+9. D 는 부모 컴포넌트 C 가 리렌더링 되었으므로 리렌더링
 
